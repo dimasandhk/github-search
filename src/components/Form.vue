@@ -137,11 +137,38 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .form-control {
   &:focus {
     border: 2px solid #989a9e;
   }
   color: #000 !important;
+}
+
+.swal-modal {
+  .swal-icon--info {
+    &::before,
+    &::after {
+      background-color: #a5dc86;
+    }
+    color: rgba(57, 57, 64, 0.95);
+    border: 4px solid #a5dc86;
+  }
+  .swal-title,
+  .swal-text {
+    color: #fff;
+  }
+  .swal-button {
+    border: none;
+    &:hover {
+      color: #fff;
+      background-color: #4d4d53 !important;
+    }
+    background-color: #4d4d53;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  background-color: rgba(57, 57, 64, 0.95);
 }
 </style>
