@@ -29,23 +29,23 @@
     <div class="col-12 col-md-12 col-lg-6">
       <h5 class="mt-3">{{ data.name }}</h5>
       <h5>@{{ data.username }}</h5>
-      <h6 class="mt-3">- Location: {{ data.location }}</h6>
+      <h6 class="mt-3">- Location: {{ data.location || "No Location" }}</h6>
       <h6>- Followers: {{ data.followers }}</h6>
       <h6>- Following: {{ data.following }}</h6>
       <h6>- Public Repos: {{ data.repo }}</h6>
       <h6>- Public Gists: {{ data.gist }}</h6>
-      <h6>- Company: {{ data.company }}</h6>
-      <h6 class="mt-4">{{ data.email }}</h6>
+      <h6>- Company: {{ data.company || "No Company" }}</h6>
+      <h6 class="mt-4">{{ data.email || "No Email" }}</h6>
       <h6>Joined at {{ parseDefaultTime(data.join) }}</h6>
     </div>
     <div class="col-12 col-md-12 col-lg-12">
       <hr />
       <h5 class="text-center">
-        {{ data.bio }}
+        {{ data.bio || "No Bio" }}
       </h5>
       <hr />
-      <h6 class="text-center">Blog: {{ data.blog }}</h6>
-      <h6 class="text-center">Twitter: {{ data.twitter }}</h6>
+      <h6 class="text-center">Blog: {{ data.blog || "No Blog" }}</h6>
+      <h6 class="text-center">Twitter: {{ data.twitter || "No Twitter" }}</h6>
       <hr />
       <Detail :value="inputValue" :data="dataObject[0]" />
       <a
@@ -106,22 +106,20 @@ export default {
 
       this.dataObject.push({
         detail: data.html_url,
-        blog: `${!data.blog ? "No Blog" : data.blog}`,
-        twitter: `${
-          !data.twitter_username ? "No Twitter" : data.twitter_username
-        }`,
+        blog: data.blog,
+        twitter: data.twitter_username,
         img: data.avatar_url,
         name: data.name,
         username: data.login,
-        location: `${!data.location ? "No Location" : data.location}`,
+        location: data.location,
         followers: data.followers,
         following: data.following,
         repo: data.public_repos,
         gist: data.public_gists,
-        company: `${!data.company ? "No Company" : data.company}`,
-        email: `${!data.email ? "No Email" : data.email}`,
+        company: data.company,
+        email: data.email,
         join: this.parseDefaultTime(data.created_at),
-        bio: `${!data.bio ? "No Bio" : data.bio}`,
+        bio: data.bio,
         repoDetail: {
           url: data.repos_url,
         },
@@ -140,7 +138,7 @@ export default {
 <style lang="scss">
 .form-control {
   &:focus {
-    border: 2px solid #989a9e;
+    border: 1px solid #989a9e !important;
   }
   color: #000 !important;
 }

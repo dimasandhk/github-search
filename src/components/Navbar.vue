@@ -1,25 +1,18 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <router-link class="navbar-brand" to="/"><Logo class="svg"/></router-link>
-      <navbar-toggler />
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <router-link class="nav-link mr-3" to="/">Home</router-link>
-          <a class="nav-link" href="#">About</a>
-        </div>
-      </div>
+    <div class="container text-center">
+      <router-link class="navbar-brand mx-auto" to="/"
+        ><Logo class="svg"
+      /></router-link>
     </div>
   </nav>
 </template>
 
 <script>
-import Button from "./Navbar/Button.vue";
 import Logo from "./Navbar/Logo.vue";
 
 export default {
   components: {
-    "navbar-toggler": Button,
     Logo,
   },
 };

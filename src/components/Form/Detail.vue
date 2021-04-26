@@ -19,12 +19,13 @@
           <div class="row justify-content-center">
             <div
               class="col-12 col-md-12 col-lg-12"
-              v-for="({ name, desc, url }, i) in dataApi"
+              v-for="({ name, desc, url, lang }, i) in dataApi"
               :key="i"
             >
-              <div class="result mt-2 rounded">
+              <div class="result res-modal mt-2 rounded">
                 <h5>{{ name }}</h5>
                 <p>Desc: {{ desc || "No Desc" }}</p>
+                <p class="p-terakhir">Lang: {{ lang || "No Lang" }}</p>
                 <a
                   class="btn btn-block shadow-none btn-dark"
                   :href="url"
@@ -84,6 +85,7 @@ export default {
           name: repo.name,
           desc: repo.description,
           url: repo.html_url,
+          lang: repo.language,
         });
       });
     },
@@ -97,5 +99,11 @@ export default {
 <style lang="scss" scoped>
 .modal-content {
   background-color: #343a40;
+}
+
+.res-modal {
+  .p-terakhir {
+    margin-top: -12px;
+  }
 }
 </style>
